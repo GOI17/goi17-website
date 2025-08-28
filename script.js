@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Language selector logic
+  const storedLang = localStorage.getItem('lang') || 'en';
+  document.documentElement.lang = storedLang;
+  const langSelect = document.getElementById('lang-select');
+  if (langSelect) {
+    langSelect.value = storedLang;
+    langSelect.addEventListener('change', (e) => {
+      const newLang = e.target.value;
+      localStorage.setItem('lang', newLang);
+      document.documentElement.lang = newLang;
+      // Reload to apply language changes (if translations are added later)
+      location.reload();
+    });
+  }
+
   const sections = {
     home: document.getElementById('home'),
     projects: document.getElementById('projects'),
