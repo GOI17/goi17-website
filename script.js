@@ -2,13 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = {
     home: document.getElementById('home'),
     projects: document.getElementById('projects'),
-    blog: document.getElementById('blog')
+    blog: document.getElementById('blog'),
+    twitch: document.getElementById('twitch') // Added twitch section
   };
 
   const loadSection = (hash) => {
     const sectionName = hash.replace('#', '') || 'home';
-    Object.values(sections).forEach(sec => sec.classList.add('hidden'));
-    if (sections[sectionName]) {
+    Object.values(sections).forEach(sec => {
+      if (sec) sec.classList.add('hidden');
+    });
+    if (sections[sectionName] && sections[sectionName].classList.contains('hidden')) {
       sections[sectionName].classList.remove('hidden');
     }
   };
