@@ -105,10 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
               if (sections.length > 1) {
                 // Find the section that matches the current language
                 const englishSection = sections.find(section =>
-                  section.includes('# ') && !section.includes('# Docker está bien') && !section.includes('# ¿Por qué no deberías')
+                  section.includes('# Understanding Carets') ||
+                  section.includes('# Why you should not compare') ||
+                  section.includes('# Docker is OK')
                 );
                 const spanishSection = sections.find(section =>
-                  section.includes('# Docker está bien') || section.includes('# ¿Por qué no deberías')
+                  section.includes('# Entendiendo los Carets') ||
+                  section.includes('# ¿Por qué no deberías') ||
+                  section.includes('# Docker está bien')
                 );
 
                 // Show content based on current language
