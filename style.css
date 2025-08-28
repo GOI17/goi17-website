@@ -52,6 +52,16 @@ nav a:hover {
   text-decoration: underline;
 }
 
+/* Ensure all links use the theme link color */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 main {
   padding: 2rem;
   flex: 1;
