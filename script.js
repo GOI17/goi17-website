@@ -63,8 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
           const list = document.getElementById('blog-list');
           posts.forEach(p => {
             const li = document.createElement('li');
-            const title = t[p.key + "_title"] || p.title;
-            const excerpt = t[p.key + "_excerpt"] || p.excerpt;
+            // Use the correct translation key pattern: blog_<key>_title / blog_<key>_excerpt
+            const titleKey = `blog_${p.key}_title`;
+            const excerptKey = `blog_${p.key}_excerpt`;
+            const title = t[titleKey] || p.title;
+            const excerpt = t[excerptKey] || p.excerpt;
             li.innerHTML = `<strong>${title}</strong> <em>(${p.date})</em><p>${excerpt}</p><a href="${p.link}" target="_blank">${t.read_more || "Read more"}</a>`;
             list.appendChild(li);
 
