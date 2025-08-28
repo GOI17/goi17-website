@@ -1,5 +1,14 @@
 [
   {
+    "key": "js_frameworks_vs_ai_tools",
+    "title": "JavaScript Frameworks vs AI Tools: A Race to Obsolescence",
+    "title_es": "Frameworks JavaScript vs Herramientas IA: Una Carrera hacia la Obsolescencia",
+    "date": "2025-08-29",
+    "excerpt": "A humorous comparison of how quickly new JavaScript frameworks emerge versus new AI models and tools. Who will win the race to irrelevance first?",
+    "excerpt_es": "Una comparación humorística de cuán rápido emergen nuevos frameworks JavaScript versus nuevos modelos y herramientas de IA. ¿Quién ganará la carrera hacia la irrelevancia primero?",
+    "link": "./blog/js-frameworks-vs-ai-tools.md"
+  },
+  {
     "key": "rendering_strategies_frontend",
     "title": "Rendering Strategies for Frontend: When and Why You Should Learn Them",
     "title_es": "Estrategias de Renderizado para Frontend: Cuándo y Por Qué Deberías Aprenderlas",

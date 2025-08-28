@@ -16,19 +16,21 @@ window.addEventListener('translationsLoaded', (event) => {
           let contentToShow = md; // Default to full content
 
           if (sections.length > 1) {
-            // Find the section that matches the current language
-            const englishSection = sections.find(section =>
-              section.includes('# Rendering Strategies for Frontend') ||
-              section.includes('# Understanding Carets') ||
-              section.includes('# Why you should not compare') ||
-              section.includes('# Docker is OK')
-            );
-            const spanishSection = sections.find(section =>
-              section.includes('# Estrategias de Renderizado para Frontend') ||
-              section.includes('# Entendiendo los Carets') ||
-              section.includes('# ¿Por qué no deberías') ||
-              section.includes('# Docker está bien')
-            );
+                // Find the section that matches the current language
+                const englishSection = sections.find(section =>
+                  section.includes('# JavaScript Frameworks vs AI Tools') ||
+                  section.includes('# Rendering Strategies for Frontend') ||
+                  section.includes('# Understanding Carets') ||
+                  section.includes('# Why you should not compare') ||
+                  section.includes('# Docker is OK')
+                );
+                const spanishSection = sections.find(section =>
+                  section.includes('# Frameworks JavaScript vs Herramientas IA') ||
+                  section.includes('# Estrategias de Renderizado para Frontend') ||
+                  section.includes('# Entendiendo los Carets') ||
+                  section.includes('# ¿Por qué no deberías') ||
+                  section.includes('# Docker está bien')
+                );
 
             // Show content based on current language
             if (storedLang === 'es' && spanishSection) {
