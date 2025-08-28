@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Language selector logic
+  /* Language selector logic */
   const storedLang = localStorage.getItem('lang') || 'en';
   document.documentElement.lang = storedLang;
   const langSelect = document.getElementById('lang-select');
@@ -9,8 +9,22 @@ document.addEventListener('DOMContentLoaded', () => {
       const newLang = e.target.value;
       localStorage.setItem('lang', newLang);
       document.documentElement.lang = newLang;
-      // Reload to apply language changes (if translations are added later)
       location.reload();
+    });
+  }
+
+  /* Theme selector logic */
+  const storedTheme = localStorage.getItem('theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.body.classList.add(storedTheme + '-theme');
+  const themeSelect = document.getElementById('theme-select');
+  if (themeSelect) {
+    themeSelect.value = storedTheme;
+    themeSelect.addEventListener('change', (e) => {
+      const newTheme = e.target.value;
+      document.body.classList.remove('light-theme', 'dark-theme');
+      document.body.classList.add(newTheme + '-theme');
+      localStorage.setItem('theme', newTheme);
     });
   }
 
@@ -18,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     home: document.getElementById('home'),
     projects: document.getElementById('projects'),
     blog: document.getElementById('blog'),
-    twitch: document.getElementById('twitch') // Added twitch section
+    twitch: document.getElementById('twitch')
   };
 
   const loadSection = (hash) => {
@@ -31,13 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Initial load
   loadSection(location.hash);
-
-  // Listen for hash changes
   window.addEventListener('hashchange', () => loadSection(location.hash));
 
-  // Load projects
   fetch('projects.json')
     .then(res => res.json())
     .then(projects => {
@@ -50,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(err => console.error('Error loading projects:', err));
 
-  // Load blog posts
   fetch('blog.json')
     .then(res => res.json())
     .then(posts => {
