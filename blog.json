@@ -1,5 +1,14 @@
 [
   {
+    "key": "carets_semantic_versioning",
+    "title": "Understanding Carets (^) in Node.js: Why Semantic Versioning Matters",
+    "title_es": "Entendiendo los Carets (^) en Node.js: Por qué importa el Versionado Semántico",
+    "date": "2024-12-25",
+    "excerpt": "Learn why understanding the caret (^) symbol in package.json is crucial for Node.js developers. Discover how semantic versioning and caret ranges can prevent breaking changes and ensure project stability.",
+    "excerpt_es": "Aprende por qué entender el símbolo caret (^) en package.json es crucial para desarrolladores de Node.js. Descubre cómo el versionado semántico y los rangos de caret pueden prevenir cambios disruptivos y asegurar la estabilidad del proyecto.",
+    "link": "./blog/carets-node-semantic-versioning.md"
+  },
+  {
     "key": "react_context_vs_redux",
     "title": "Why you should not compare React Context with Redux/Redux-toolkit?",
     "title_es": "¿Por qué no deberías comparar React Context con Redux/Redux-toolkit?",
