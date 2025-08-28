@@ -5,12 +5,18 @@ on:
     branches:
       - main  # or master, depending on your default branch
 
+permissions:
+  contents: write  # allow the workflow to push to the gh-pages branch
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # fetch all history for a clean push
+          persist-credentials: true
 
       - name: Set up Node.js (required for the gh-pages action)
         uses: actions/setup-node@v4
