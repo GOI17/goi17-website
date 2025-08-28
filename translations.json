@@ -1,11 +1,11 @@
 {
   "en": {
-    "title": "My Portfolio",
+    "title": "Full-Stack Developer & Tech Enthusiast",
     "nav_home": "Home",
     "nav_projects": "Projects",
     "nav_blog": "Blog",
     "nav_twitch": "Twitch",
-    "welcome": "Welcome to my personal website. Explore my projects and read my latest blog posts.",
+    "welcome": "Welcome to my digital space where code meets creativity. Explore innovative projects, dive into technical insights, and discover the passion behind modern web development.",
     "projects_heading": "Projects",
     "blog_heading": "Blog",
     "twitch_heading": "Twitch",
@@ -23,12 +23,12 @@
     "read_more": "Read more"
   },
   "es": {
-    "title": "Mi Portafolio",
+    "title": "Desarrollador Full-Stack & Entusiasta de la Tecnología",
     "nav_home": "Inicio",
     "nav_projects": "Proyectos",
     "nav_blog": "Blog",
     "nav_twitch": "Twitch",
-    "welcome": "Bienvenido a mi sitio web personal. Explora mis proyectos y lee mis últimas publicaciones de blog.",
+    "welcome": "Bienvenido a mi espacio digital donde el código se encuentra con la creatividad. Explora proyectos innovadores, sumérgete en conocimientos técnicos y descubre la pasión detrás del desarrollo web moderno.",
     "projects_heading": "Proyectos",
     "blog_heading": "Blog",
     "twitch_heading": "Twitch",
