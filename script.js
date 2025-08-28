@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
               fetch(link.getAttribute('href'))
                 .then(r => r.text())
                 .then(md => {
-                  document.getElementById('post-title').innerText = title;
+                  // The title is rendered within the markdown content, so we don't set post-title
                   document.getElementById('post-content').innerHTML = marked.parse(md);
                   document.getElementById('blog').classList.add('hidden');
                   document.getElementById('post').classList.remove('hidden');
