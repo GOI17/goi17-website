@@ -1,19 +1,39 @@
-/* Darcula color scheme */
+/* Darcula color scheme with light mode support */
+:root {
+  /* Light theme defaults */
+  --bg: #ffffff;
+  --fg: #000000;
+  --header-bg: #f0f0f0;
+  --list-bg: #e0e0e0;
+  --footer-bg: #f0f0f0;
+  --link-color: #0000ee;
+}
+
+.dark-theme {
+  /* Dark theme overrides */
+  --bg: #2b2b2b;
+  --fg: #f8f8f2;
+  --header-bg: #3c3f41;
+  --list-bg: #3c3f41;
+  --footer-bg: #3c3f41;
+  --link-color: #4e9af1;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background: #2b2b2b; /* Darcula background */
-  color: #f8f8f2; /* Darcula foreground */
-  min-height: 100vh; /* Ensure body covers full viewport height */
-  display: flex; /* Enable flex layout for sticky footer */
-  flex-direction: column; /* Stack header, main, footer vertically */
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-  background: #3c3f41; /* Darcula header */
-  color: #f8f8f2;
+  background: var(--header-bg);
+  color: var(--fg);
   padding: 1rem 0;
   text-align: center;
 }
@@ -23,7 +43,7 @@ header h1 {
 }
 
 nav a {
-  color: #f8f8f2;
+  color: var(--link-color);
   margin: 0 1rem;
   text-decoration: none;
 }
@@ -34,7 +54,7 @@ nav a:hover {
 
 main {
   padding: 2rem;
-  flex: 1; /* Allow main to grow and push footer to bottom */
+  flex: 1;
 }
 
 .hidden {
@@ -51,7 +71,7 @@ ul {
 }
 
 li {
-  background: #3c3f41; /* Darcula list background */
+  background: var(--list-bg);
   margin-bottom: 0.5rem;
   padding: 1rem;
   border-radius: 4px;
@@ -61,7 +81,6 @@ li {
 footer {
   text-align: center;
   padding: 1rem 0;
-  background: #3c3f41;
-  color: #f8f8f2;
-  /* Footer stays at bottom due to flex layout of body */
+  background: var(--footer-bg);
+  color: var(--fg);
 }
