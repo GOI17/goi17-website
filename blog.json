@@ -1,0 +1,14 @@
+[
+  {
+    "title": "First Blog Post",
+    "date": "2025-01-01",
+    "excerpt": "This is the first blog post about my journey into front‑end development.",
+    "link": "#"
+  },
+  {
+    "title": "Second Blog Post",
+    "date": "2025-02-01",
+    "excerpt": "In this post I discuss the pros and cons of using vanilla JS versus frameworks.",
+    "link": "#"
+  }
+]
