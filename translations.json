@@ -11,7 +11,12 @@
     "twitch_heading": "Twitch",
     "twitch_text1": "Check out my live streams and past broadcasts on Twitch.",
     "twitch_link_text": "https://www.twitch.tv/unbootuichero",
-    "footer_text": "© 2025 Gilberto Olivas"
+    "footer_text": "© 2025 Gilberto Olivas",
+    "blog_react_context_title": "Why you should not compare React Context with Redux/Redux-toolkit?",
+    "blog_react_context_excerpt": "React Context and Redux serve different purposes. While Context is great for simple, component‑local state, Redux offers a robust, predictable store with middleware, dev‑tools, and a large ecosystem. Comparing them is like comparing a pocket‑knife to a full‑sized toolbox.",
+    "blog_docker_nix_title": "Docker is OK, but if you want to go further you should consider Nix",
+    "blog_docker_nix_excerpt": "Docker has become the de‑facto standard for containerization, but it has limitations in reproducibility, declarative configuration, and multi‑platform builds. Nix, a purely functional package manager, offers a different approach that can address many of Docker’s pain points.",
+    "read_more": "Read more"
   },
   "es": {
     "title": "Mi Portafolio",
@@ -25,6 +30,11 @@
     "twitch_heading": "Twitch",
     "twitch_text1": "Mira mis transmisiones en vivo y transmisiones pasadas en Twitch.",
     "twitch_link_text": "https://www.twitch.tv/unbootuichero",
-    "footer_text": "© 2025 Gilberto Olivas"
+    "footer_text": "© 2025 Gilberto Olivas",
+    "blog_react_context_title": "¿Por qué no deberías comparar React Context con Redux/Redux-toolkit?",
+    "blog_react_context_excerpt": "React Context y Redux tienen propósitos diferentes. Mientras que Context es excelente para estados simples y locales a componentes, Redux ofrece una tienda robusta y predecible con middleware, dev‑tools y un gran ecosistema. Compararlos es como comparar un cuchillo de bolsillo con una caja de herramientas completa.",
+    "blog_docker_nix_title": "Docker está bien, pero si quieres ir más allá deberías considerar Nix",
+    "blog_docker_nix_excerpt": "Docker se ha convertido en el estándar de facto para la contenedorización, pero tiene limitaciones en reproducibilidad, configuración declarativa y compilaciones multiplataforma. Nix, un gestor de paquetes puramente funcional, ofrece un enfoque diferente que puede abordar muchos de los puntos débiles de Docker.",
+    "read_more": "Leer más"
   }
 }
