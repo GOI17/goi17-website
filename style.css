@@ -10,13 +10,17 @@
 }
 
 .dark-theme {
-  /* Dark theme overrides */
-  --bg: #2b2b2b;
-  --fg: #f8f8f2;
-  --header-bg: #3c3f41;
-  --list-bg: #3c3f41;
-  --footer-bg: #3c3f41;
-  --link-color: #4e9af1;
+  /* Darcula Dark Theme - Professional IntelliJ-inspired colors */
+  --bg: #2b2b2b;           /* Main background */
+  --fg: #a9b7c6;           /* Primary text color */
+  --header-bg: #3c3f41;    /* Header and navigation background */
+  --list-bg: #313335;      /* List items and cards background */
+  --footer-bg: #3c3f41;    /* Footer background */
+  --link-color: #4e9af1;   /* Links and accent color */
+  --border-color: #555555; /* Borders and dividers */
+  --code-bg: #3c3f41;      /* Code blocks background */
+  --blockquote-bg: #313335; /* Blockquotes background */
+  --hover-bg: #4e5254;     /* Hover states */
 }
 
 body {
@@ -133,19 +137,81 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 #scroll-to-top:hover {
   background: var(--link-color);
   color: var(--bg);
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 
 #scroll-to-top:active {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Enhanced dark theme shadows */
+.dark-theme #scroll-to-top {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.dark-theme #scroll-to-top:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+}
+
+.dark-theme #scroll-to-top:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Enhanced styling for Darcula theme */
+.dark-theme {
+  /* Code blocks styling */
+  --code-bg: #3c3f41;
+  --code-border: #555555;
+}
+
+.dark-theme pre {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 4px;
+}
+
+.dark-theme code {
+  background: var(--code-bg);
+  color: #e6db74; /* Yellow-green for code */
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.dark-theme a:hover {
+  color: #5ab4fc; /* Lighter blue on hover */
+}
+
+.dark-theme li:hover {
+  background: var(--hover-bg);
+  transition: background-color 0.2s ease;
+}
+
+.dark-theme button {
+  background: var(--header-bg);
+  border: 1px solid var(--border-color);
+  color: var(--fg);
+}
+
+.dark-theme button:hover {
+  background: var(--hover-bg);
+  border-color: var(--link-color);
+}
+
+/* Blockquotes styling for dark theme */
+.dark-theme blockquote {
+  background: var(--blockquote-bg);
+  border-left: 4px solid var(--link-color);
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0 4px 4px 0;
 }
 
 /* Smooth transition for theme changes */
