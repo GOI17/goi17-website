@@ -3,7 +3,7 @@
     "key": "rendering_strategies_frontend",
     "title": "Rendering Strategies for Frontend: When and Why You Should Learn Them",
     "title_es": "Estrategias de Renderizado para Frontend: Cuándo y Por Qué Deberías Aprenderlas",
-    "date": "2024-12-30",
+    "date": "2024-12-28",
     "excerpt": "Master the different rendering strategies (SSR, SSG, CSR, ISR) to build faster, more SEO-friendly web applications. Learn when to use each approach and why understanding them is crucial for modern frontend development.",
     "excerpt_es": "Domina las diferentes estrategias de renderizado (SSR, SSG, CSR, ISR) para construir aplicaciones web más rápidas y amigables con SEO. Aprende cuándo usar cada enfoque y por qué entenderlas es crucial para el desarrollo frontend moderno.",
     "link": "./blog/rendering-strategies-frontend.md"
@@ -12,7 +12,7 @@
     "key": "carets_semantic_versioning",
     "title": "Understanding Carets (^) in Node.js: Why Semantic Versioning Matters",
     "title_es": "Entendiendo los Carets (^) en Node.js: Por qué importa el Versionado Semántico",
-    "date": "2024-12-25",
+    "date": "2024-12-26",
     "excerpt": "Learn why understanding the caret (^) symbol in package.json is crucial for Node.js developers. Discover how semantic versioning and caret ranges can prevent breaking changes and ensure project stability.",
     "excerpt_es": "Aprende por qué entender el símbolo caret (^) en package.json es crucial para desarrolladores de Node.js. Descubre cómo el versionado semántico y los rangos de caret pueden prevenir cambios disruptivos y asegurar la estabilidad del proyecto.",
     "link": "./blog/carets-node-semantic-versioning.md"
