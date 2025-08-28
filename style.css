@@ -1,15 +1,16 @@
+/* Darcula color scheme */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background: #f4f4f4;
-  color: #333;
+  background: #2b2b2b; /* Darcula background */
+  color: #f8f8f2; /* Darcula foreground */
 }
 
 header {
-  background: #333;
-  color: #fff;
+  background: #3c3f41; /* Darcula header */
+  color: #f8f8f2;
   padding: 1rem 0;
   text-align: center;
 }
@@ -19,7 +20,7 @@ header h1 {
 }
 
 nav a {
-  color: #fff;
+  color: #f8f8f2;
   margin: 0 1rem;
   text-decoration: none;
 }
@@ -46,16 +47,16 @@ ul {
 }
 
 li {
-  background: #fff;
+  background: #3c3f41; /* Darcula list background */
   margin-bottom: 0.5rem;
   padding: 1rem;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 footer {
   text-align: center;
   padding: 1rem 0;
-  background: #333;
-  color: #fff;
+  background: #3c3f41;
+  color: #f8f8f2;
 }
