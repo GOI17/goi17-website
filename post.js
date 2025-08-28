@@ -39,6 +39,12 @@ window.addEventListener('translationsLoaded', (event) => {
           }
 
           postContent.innerHTML = marked.parse(contentToShow);
+
+          // Update meta tags for SEO
+          updateMetaTags(contentToShow, file);
+
+          // Update meta tags for SEO
+          updateMetaTags(contentToShow, file);
         })
         .catch(err => console.error('Error loading post:', err));
     }
@@ -125,3 +131,63 @@ window.addEventListener('translationsLoaded', (event) => {
   // Initialize scroll to top button
   initScrollToTop();
 });
+
+// Function to update meta tags for individual blog posts
+function updateMetaTags(content, filePath) {
+  // Extract title from content (first h1)
+  const titleMatch = content.match(/^#\s+(.+)$/m);
+  const title = titleMatch ? titleMatch[1] : 'Blog Post | Gilberto Olivas';
+
+  // Extract first paragraph as description
+  const descMatch = content.match(/^[^#].+$/m);
+  const description = descMatch ? descMatch[0].substring(0, 160) + '...' : 'Technical article about web development.';
+
+  // Update page title
+  document.title = `${title} | Gilberto Olivas`;
+
+  // Update meta description
+  updateMetaTag('description', description);
+
+  // Update Open Graph tags
+  updateMetaTag('og:title', `${title} | Gilberto Olivas`);
+  updateMetaTag('og:description', description);
+  updateMetaTag('og:url', `https://goi17.github.io/website/post.html?file=${encodeURIComponent(filePath)}`);
+
+  // Update Twitter tags
+  updateMetaTag('twitter:title', `${title} | Gilberto Olivas`);
+  updateMetaTag('twitter:description', description);
+  updateMetaTag('twitter:url', `https://goi17.github.io/website/post.html?file=${encodeURIComponent(filePath)}`);
+
+  // Update canonical URL
+  updateCanonicalUrl(`https://goi17.github.io/website/post.html?file=${encodeURIComponent(filePath)}`);
+}
+
+function updateMetaTag(name, content) {
+  let meta = document.querySelector(`meta[name="${name}"]`) ||
+             document.querySelector(`meta[property="${name}"]`);
+
+  if (meta) {
+    meta.setAttribute('content', content);
+  } else {
+    meta = document.createElement('meta');
+    if (name.startsWith('og:') || name.startsWith('twitter:')) {
+      meta.setAttribute('property', name);
+    } else {
+      meta.setAttribute('name', name);
+    }
+    meta.setAttribute('content', content);
+    document.head.appendChild(meta);
+  }
+}
+
+function updateCanonicalUrl(url) {
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) {
+    canonical.setAttribute('href', url);
+  } else {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    canonical.setAttribute('href', url);
+    document.head.appendChild(canonical);
+  }
+}
