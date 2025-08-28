@@ -1,3 +1,12 @@
+---
+title:
+  en: "Docker is OK, but if you want to go further you should consider Nix"
+  es: "Docker está bien, pero si quieres ir más allá deberías considerar Nix"
+excerpt:
+  en: "Docker has become the de‑facto standard for containerization, but it has limitations in reproducibility, declarative configuration, and multi‑platform builds. Nix, a purely functional package manager, offers a different approach that can address many of Docker’s pain points."
+  es: "Docker se ha convertido en el estándar de facto para la contenedorización, pero tiene limitaciones en reproducibilidad, configuración declarativa y compilaciones multiplataforma. Nix, un gestor de paquetes puramente funcional, ofrece un enfoque diferente que puede abordar muchos de los puntos débiles de Docker."
+---
+
 # Docker is OK, but if you want to go further you should consider Nix
 
 Docker has become the de‑facto standard for containerization, but it has some limitations when it comes to reproducibility, declarative configuration, and multi‑platform builds. Nix, a purely functional package manager, offers a different approach that can address many of Docker’s pain points.

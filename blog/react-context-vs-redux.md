@@ -1,3 +1,12 @@
+---
+title:
+  en: "Why you should not compare React Context with Redux/Redux-toolkit?"
+  es: "¿Por qué no deberías comparar React Context con Redux/Redux-toolkit?"
+excerpt:
+  en: "React Context and Redux serve different purposes. While Context is great for simple, component‑local state, Redux offers a robust, predictable store with middleware, dev‑tools, and a large ecosystem. Comparing them is like comparing a pocket‑knife to a full‑sized toolbox."
+  es: "React Context y Redux tienen propósitos diferentes. Mientras que Context es excelente para estados simples y locales a componentes, Redux ofrece una tienda robusta y predecible con middleware, dev‑tools y un gran ecosistema. Compararlos es como comparar un cuchillo de bolsillo con una caja de herramientas completa."
+---
+
 # Why you should not compare React Context with Redux/Redux-toolkit?
 
 React Context and Redux are often compared because they both provide a way to share state across components. However, they were designed for different problems and have distinct trade‑offs. Understanding those differences helps you choose the right tool for your use case.
@@ -45,4 +54,3 @@ React Context is great for small, component‑local concerns. Redux shines when 
 ---
 
 *Read more about Redux Toolkit: https://redux-toolkit.js.org/*
-
