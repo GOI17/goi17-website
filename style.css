@@ -1,59 +1,106 @@
-/* Darcula color scheme with light mode support */
+/* Modern Documentation-Style Theme */
 :root {
-  /* Light theme defaults */
+  /* Light theme - Clean and professional */
   --bg: #ffffff;
-  --fg: #000000;
-  --header-bg: #f0f0f0;
-  --list-bg: #e0e0e0;
-  --footer-bg: #f0f0f0;
-  --link-color: #0000ee;
+  --fg: #1a1a1a;
+  --header-bg: #ffffff;
+  --header-shadow: rgba(0, 0, 0, 0.08);
+  --list-bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --footer-bg: #f8f9fa;
+  --link-color: #2563eb;
+  --border-color: #e5e7eb;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
 }
 
 .dark-theme {
-  /* Darcula Dark Theme - Professional IntelliJ-inspired colors */
-  --bg: #2b2b2b;           /* Main background */
-  --fg: #a9b7c6;           /* Primary text color */
-  --header-bg: #3c3f41;    /* Header and navigation background */
-  --list-bg: #313335;      /* List items and cards background */
-  --footer-bg: #3c3f41;    /* Footer background */
-  --link-color: #4e9af1;   /* Links and accent color */
-  --border-color: #555555; /* Borders and dividers */
-  --code-bg: #3c3f41;      /* Code blocks background */
-  --blockquote-bg: #313335; /* Blockquotes background */
-  --hover-bg: #4e5254;     /* Hover states */
+  /* Modern Dark Theme - Documentation inspired */
+  --bg: #0f172a;           /* Deep navy background */
+  --fg: #f1f5f9;           /* Light text */
+  --header-bg: #1e293b;    /* Dark header */
+  --header-shadow: rgba(0, 0, 0, 0.3);
+  --list-bg: #1e293b;      /* Card/list background */
+  --card-bg: #1e293b;      /* Card background */
+  --footer-bg: #0f172a;    /* Footer background */
+  --link-color: #3b82f6;   /* Blue links */
+  --border-color: #334155; /* Subtle borders */
+  --text-secondary: #94a3b8; /* Secondary text */
+  --text-muted: #64748b;   /* Muted text */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --code-bg: #1e293b;      /* Code blocks background */
+  --blockquote-bg: #1e293b; /* Blockquotes background */
+  --hover-bg: #334155;     /* Hover states */
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
+  line-height: 1.7;
   background: var(--bg);
   color: var(--fg);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 header {
   background: var(--header-bg);
   color: var(--fg);
   padding: 1rem 0;
-  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 header h1 {
   margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
 }
 
 nav a {
-  color: var(--link-color);
-  margin: 0 1rem;
+  color: var(--text-secondary);
   text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  position: relative;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: var(--link-color);
+  background: var(--list-bg);
+  text-decoration: none;
+}
+
+nav a.active {
+  color: var(--link-color);
+  background: var(--list-bg);
 }
 
 /* Ensure all links use the theme link color */
@@ -67,8 +114,16 @@ a:hover {
 }
 
 main {
-  padding: 2rem;
   flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  width: 100%;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .hidden {
@@ -76,27 +131,158 @@ main {
 }
 
 section {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Hero section styling */
+.hero {
+  text-align: center;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, var(--bg) 0%, var(--list-bg) 100%);
+  border-radius: var(--radius-lg);
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--link-color), var(--fg));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* Modern card-based layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--link-color);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--fg);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.card p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.card .date {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
 }
 
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 li {
-  background: var(--list-bg);
-  margin-bottom: 0.5rem;
-  padding: 1rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
 }
 
+li:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--link-color);
+  transform: translateY(-1px);
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/* Modern button styling */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--link-color);
+  color: white;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--link-color);
+  border-color: var(--link-color);
+}
+
+.btn-secondary:hover {
+  background: var(--link-color);
+  color: white;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+/* Footer styling */
 footer {
-  text-align: center;
-  padding: 1rem 0;
   background: var(--footer-bg);
-  color: var(--fg);
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 0 1rem;
+  margin-top: 4rem;
+}
+
+footer .container {
+  text-align: center;
+}
+
+footer p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.875rem;
 }
 
 /* Page transition styles */

@@ -9,9 +9,14 @@ window.addEventListener('translationsLoaded', (event) => {
       .then(res => res.json())
       .then(projects => {
         projects.forEach(p => {
-          const li = document.createElement('li');
-          li.innerHTML = `<strong>${p.title}</strong><p>${p.description}</p><a href="${p.link}" target="_blank">View on GitHub</a>`;
-          projectList.appendChild(li);
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <h3>${p.title}</h3>
+            <p>${p.description}</p>
+            <a href="${p.link}" target="_blank" class="btn btn-sm">View on GitHub →</a>
+          `;
+          projectList.appendChild(card);
         });
       })
       .catch(err => console.error('Error loading projects:', err));

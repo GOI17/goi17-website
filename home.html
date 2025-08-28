@@ -25,7 +25,35 @@
 </header>
 <main id="content" class="page-transition">
   <section id="home">
-    <p data-i18n="welcome">Welcome to my personal website. Explore my projects and read my latest blog posts.</p>
+    <div class="hero">
+      <h1 data-i18n="title">My Portfolio</h1>
+      <p data-i18n="welcome">Welcome to my personal website. Explore my projects and read my latest blog posts.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="projects.html" class="btn">View Projects</a>
+        <a href="blog.html" class="btn btn-secondary">Read Blog</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2 style="text-align: center; margin-bottom: 2rem; color: var(--fg);">Latest Content</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>🚀 Projects</h3>
+          <p>Explore my latest development projects, from web applications to open source contributions.</p>
+          <a href="projects.html" class="btn btn-sm">View All Projects →</a>
+        </div>
+        <div class="card">
+          <h3>📝 Blog</h3>
+          <p>Read technical articles about web development, React, Node.js, and modern development practices.</p>
+          <a href="blog.html" class="btn btn-sm">Read Articles →</a>
+        </div>
+        <div class="card">
+          <h3>🎮 Gaming</h3>
+          <p>Check out my gaming streams and content on Twitch. Join the community!</p>
+          <a href="twitch.html" class="btn btn-sm">Watch Streams →</a>
+        </div>
+      </div>
+    </div>
   </section>
 </main>
 <footer>
