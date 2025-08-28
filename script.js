@@ -67,9 +67,31 @@ document.addEventListener('DOMContentLoaded', () => {
             const excerpt = t[p.key + "_excerpt"] || p.excerpt;
             li.innerHTML = `<strong>${title}</strong> <em>(${p.date})</em><p>${excerpt}</p><a href="${p.link}" target="_blank">${t.read_more || "Read more"}</a>`;
             list.appendChild(li);
+
+            /* Attach click handler to load markdown */
+            const link = li.querySelector('a');
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              fetch(link.getAttribute('href'))
+                .then(r => r.text())
+                .then(md => {
+                  document.getElementById('post-title').innerText = title;
+                  document.getElementById('post-content').innerHTML = marked.parse(md);
+                  document.getElementById('blog').classList.add('hidden');
+                  document.getElementById('post').classList.remove('hidden');
+                })
+                .catch(err => console.error('Error loading post:', err));
+            });
           });
         })
         .catch(err => console.error('Error loading blog posts:', err));
+
+      /* Back button for post view */
+      const backBtn = document.getElementById('post-back');
+      backBtn.addEventListener('click', () => {
+        document.getElementById('post').classList.add('hidden');
+        document.getElementById('blog').classList.remove('hidden');
+      });
 
       /* Section loader */
       const sections = {
