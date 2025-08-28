@@ -72,8 +72,16 @@ document.addEventListener('DOMContentLoaded', () => {
               // Use the correct translation key pattern: blog_<key>_title / blog_<key>_excerpt
               const titleKey = `blog_${p.key}_title`;
               const excerptKey = `blog_${p.key}_excerpt`;
-              const title = t[titleKey] || p.title;
-              const excerpt = t[excerptKey] || p.excerpt;
+
+              // Get title and excerpt based on current language
+              let title = t[titleKey] || p.title;
+              let excerpt = t[excerptKey] || p.excerpt;
+
+              if (storedLang === 'es') {
+                title = p.title_es || title;
+                excerpt = p.excerpt_es || excerpt;
+              }
+
               li.innerHTML = `<strong>${title}</strong> <em>(${p.date})</em><p>${excerpt}</p><a href="post.html?file=${encodeURIComponent(p.link)}">${t.read_more || "Read more"}</a>`;
               blogList.appendChild(li);
             });
@@ -90,7 +98,28 @@ document.addEventListener('DOMContentLoaded', () => {
           fetch(file)
             .then(r => r.text())
             .then(md => {
-              postContent.innerHTML = marked.parse(md);
+              // Split content by language sections (separated by ---)
+              const sections = md.split(/^---$/gm).filter(section => section.trim());
+              let contentToShow = md; // Default to full content
+
+              if (sections.length > 1) {
+                // Find the section that matches the current language
+                const englishSection = sections.find(section =>
+                  section.includes('# ') && !section.includes('# Docker está bien') && !section.includes('# ¿Por qué no deberías')
+                );
+                const spanishSection = sections.find(section =>
+                  section.includes('# Docker está bien') || section.includes('# ¿Por qué no deberías')
+                );
+
+                // Show content based on current language
+                if (storedLang === 'es' && spanishSection) {
+                  contentToShow = spanishSection.trim();
+                } else if (storedLang === 'en' && englishSection) {
+                  contentToShow = englishSection.trim();
+                }
+              }
+
+              postContent.innerHTML = marked.parse(contentToShow);
             })
             .catch(err => console.error('Error loading post:', err));
         }

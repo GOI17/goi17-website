@@ -60,9 +60,66 @@ While React Context and Redux remain excellent choices, consider these modern al
 
 ## 7. Bottom Line
 
-React Context is great for small, component‑local concerns. Redux shines when you need a predictable, testable, and debuggable global store with a rich middleware ecosystem. Comparing them is like comparing a pocket‑knife to a full‑sized toolbox: each has its place, and the right choice depends on the problem you're solving.
+React Context is great for small, component‑local concerns. Redux shines when you need a predictable, testable, and debuggable global store with a rich middleware ecosystem. Comparing them is like comparing a pocket‑knife to a full‑sized toolbox: each has its place, and the right choice depends on the problem you’re solving.
 
 ---
 
-*Read more about Redux Toolkit: https://redux-toolkit.js.org/*
-*Explore RTK Query: https://redux-toolkit.js.org/rtk-query/overview*
+# ¿Por qué no deberías comparar React Context con Redux/Redux-toolkit?
+
+React Context y Redux se comparan a menudo porque ambos proporcionan una forma de compartir estado entre componentes. Sin embargo, fueron diseñados para diferentes problemas y tienen compensaciones distintas. Entender esas diferencias te ayuda a elegir la herramienta correcta para tu caso de uso.
+
+## 1. Alcance de Responsabilidad
+
+| Característica | React Context | Redux / Redux‑Toolkit |
+|----------------|---------------|-----------------------|
+| **Uso principal** | Pasar datos a través del árbol de componentes sin prop drilling | Gestión centralizada de estado global |
+| **Tamaño típico** | Datos pequeños, locales a componentes | Estado grande, a nivel de aplicación |
+| **Boilerplate** | Mínimo – solo `createContext` y `Provider` | Moderado – store, reducers, actions, middleware |
+| **DevTools** | Ninguno (excepto React DevTools) | Integración completa con Redux DevTools |
+| **Middleware** | Ninguno | Ecosistema poderoso de middleware (thunk, saga, etc.) |
+| **Testing** | Simple – mock provider | Extenso – mock store, dispatch actions |
+
+## 2. Consideraciones de Rendimiento
+
+- **Context** activa una re‑renderización de todos los consumidores cada vez que cambia el valor. Si el valor es un objeto que cambia frecuentemente, puedes mitigarlo con `useMemo` o dividiendo el contexto en piezas más pequeñas.
+- **Redux** usa un store único y un modelo de suscripción. Solo los componentes que hacen `mapStateToProps` (o `useSelector`) para el slice cambiado se re‑renderizarán. Esto puede ser más eficiente para aplicaciones grandes.
+
+## 3. Predictibilidad y Depuración
+
+- **Context** es una API simple; puedes leer el valor actual con `useContext`. No hay depuración integrada de viaje en el tiempo.
+- **Redux** se construye alrededor de reducers puros y estado inmutable. Esto hace que los cambios de estado sean predecibles y habilita poderosas herramientas de depuración como viaje en el tiempo, repetición de acciones y logging.
+
+## 4. Ecosistema y Herramientas
+
+- **Context** es parte de React mismo; no hay dependencias externas.
+- **Redux** tiene un ecosistema maduro: middleware, dev‑tools, persistencia, helpers de server‑side rendering, y bibliotecas de la comunidad (ej. Redux‑Toolkit para reducción de boilerplate).
+
+## 5. Cuándo Usar Cada Uno
+
+| Escenario | Herramienta Recomendada |
+|-----------|-------------------------|
+| Toggle simple de tema o locale | React Context |
+| Estado de formulario que vive solo en algunos componentes | React Context |
+| Estado de autenticación global | React Context (si es simple) o Redux (si necesitas persistencia, middleware) |
+| Lógica de negocio compleja, flujos async, caching | Redux / Redux‑Toolkit |
+| Equipos grandes con contratos estrictos de estado | Redux |
+| Características colaborativas en tiempo real | Redux (con middleware como redux-saga) |
+| Obtención y caching de datos complejos | Redux Toolkit Query (RTK Query) |
+
+## 6. Alternativas Modernas
+
+Mientras React Context y Redux siguen siendo excelentes opciones, considera estas alternativas modernas:
+
+- **Zustand**: Gestión ligera de estado con una API simple, similar a Redux pero con menos boilerplate
+- **Recoil**: Biblioteca de gestión de estado de Facebook diseñada específicamente para React
+- **Jotai**: Gestión de estado atómico inspirado en Recoil, con una API mínima
+- **Redux Toolkit Query (RTK Query)**: Para escenarios complejos de obtención de datos y caching
+
+## 7. Conclusión
+
+React Context es excelente para preocupaciones pequeñas y locales a componentes. Redux brilla cuando necesitas una tienda global predecible, testeable y depurable con un rico ecosistema de middleware. Compararlos es como comparar un cuchillo de bolsillo con una caja de herramientas completa: cada uno tiene su lugar, y la elección correcta depende del problema que estés resolviendo.
+
+---
+
+*Lee más sobre Redux Toolkit: https://redux-toolkit.js.org/*
+*Explora RTK Query: https://redux-toolkit.js.org/rtk-query/overview*

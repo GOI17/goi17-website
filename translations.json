@@ -33,8 +33,10 @@
     "footer_text": "© 2025 Gilberto Olivas",
     "blog_react_context_vs_redux_title": "¿Por qué no deberías comparar React Context con Redux/Redux-toolkit?",
     "blog_react_context_vs_redux_excerpt": "React Context y Redux tienen propósitos diferentes. Mientras que Context es excelente para estados simples y locales a componentes, Redux ofrece una tienda robusta y predecible con middleware, dev‑tools y un gran ecosistema. Compararlos es como comparar un cuchillo de bolsillo con una caja de herramientas completa.",
+    "blog_react_context_vs_redux_title": "¿Por qué no deberías comparar React Context con Redux/Redux-toolkit?",
     "blog_docker_nix_title": "Docker está bien, pero si quieres ir más allá deberías considerar Nix",
     "blog_docker_nix_excerpt": "Docker se ha convertido en el estándar de facto para la contenedorización, pero tiene limitaciones en reproducibilidad, configuración declarativa y compilaciones multiplataforma. Nix, un gestor de paquetes puramente funcional, ofrece un enfoque diferente que puede abordar muchos de los puntos débiles de Docker.",
+    "blog_docker_nix_title": "Docker está bien, pero si quieres ir más allá deberías considerar Nix",
     "read_more": "Leer más"
   }
 }
