@@ -399,3 +399,239 @@ footer p {
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
+
+/* ========================================
+   MOBILE RESPONSIVE STYLES
+   ======================================== */
+
+/* Mobile Navigation - Hamburger Menu */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--fg);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-menu-toggle:focus {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+  /* Typography adjustments for mobile */
+  body {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Mobile header */
+  header {
+    padding: 0.5rem 0;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 0;
+    background: var(--header-bg);
+    border-top: 1px solid var(--border-color);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    box-shadow: var(--shadow-md);
+  }
+
+  nav.mobile-open {
+    display: flex;
+  }
+
+  nav a {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  nav a:hover {
+    background: var(--hover-bg);
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Mobile main content */
+  main {
+    padding: 1rem 0.5rem;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  /* Mobile hero section */
+  .hero {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius-md);
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Mobile card grid */
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  /* Mobile buttons */
+  .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Mobile language/theme selectors */
+  select {
+    font-size: 14px;
+    padding: 0.5rem;
+  }
+
+  /* Mobile footer */
+  footer {
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  /* Mobile scroll to top button */
+  #scroll-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+}
+
+/* Extra small devices (iPhone 5 and similar - 320px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  /* Stack buttons vertically on very small screens */
+  .hero > div {
+    flex-direction: column;
+  }
+
+  /* Adjust navigation for very small screens */
+  nav a {
+    padding: 0.75rem;
+    font-size: 14px;
+  }
+
+  /* Smaller scroll button for tiny screens */
+  #scroll-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+/* Tablet and small desktop adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  main {
+    padding: 2rem;
+  }
+}
+
+/* Large desktop adjustments */
+@media (min-width: 1200px) {
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Print styles */
+@media print {
+  .mobile-menu-toggle,
+  #scroll-to-top,
+  nav select {
+    display: none !important;
+  }
+
+  nav {
+    display: flex !important;
+    flex-direction: row !important;
+    position: static !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  nav a {
+    padding: 0.25rem 0.5rem !important;
+  }
+
+  .hero {
+    background: white !important;
+    color: black !important;
+  }
+
+  .hero h1 {
+    background: none !important;
+    -webkit-text-fill-color: black !important;
+    color: black !important;
+  }
+}
