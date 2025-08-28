@@ -1,0 +1,20 @@
+
+This gives you the best of both worlds: Docker’s ecosystem and Nix’s reproducibility.
+
+## 6. When to Use Nix
+
+| Scenario | Recommendation |
+|----------|----------------|
+| You need reproducible builds across CI, staging, and production | Nix |
+| You’re deploying to heterogeneous environments (ARM, x86, Windows, macOS) | Nix |
+| You want fine‑grained control over every dependency | Nix |
+| You’re comfortable with a functional language and want to avoid “Dockerfile hell” | Nix |
+| You just need a quick container for a simple script | Docker |
+
+## Bottom Line
+
+Docker is great for quick, portable containers, but if you’re building complex, multi‑platform, or highly reproducible systems, Nix offers a powerful, declarative alternative. You can even combine them: use Nix to build your Docker images, ensuring that every image is deterministic and reproducible.
+
+---
+
+*Read more about Nix: https://nixos.org/nix/*
