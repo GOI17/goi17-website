@@ -1,12 +1,22 @@
 [
   {
-    "title": "Project One",
-    "description": "A cool project about X that showcases my skills in JavaScript and CSS.",
-    "link": "https://github.com/yourusername/project-one"
+    "title": "Dotlyx",
+    "description": "A modern dotfiles management system built with Bash and Nix. Streamlines development environment setup across multiple machines with declarative configuration and automated provisioning.",
+    "link": "https://github.com/GOI17/dotlyx"
   },
   {
-    "title": "Project Two",
-    "description": "Another project about Y, built with vanilla JS and responsive design.",
-    "link": "https://github.com/yourusername/project-two"
+    "title": "Codely Theme Zed",
+    "description": "A beautiful, customizable theme for the Zed code editor. Features syntax highlighting, UI components, and extensive customization options for an enhanced coding experience.",
+    "link": "https://github.com/GOI17/codely-theme-zed"
+  },
+  {
+    "title": "VibeVault",
+    "description": "A modern music streaming and management application. Built with cutting-edge web technologies, featuring playlist management, audio visualization, and seamless user experience.",
+    "link": "https://github.com/GOI17/VibeVault"
+  },
+  {
+    "title": "Intelligent Personal Knowledge Manager",
+    "description": "An AI-powered knowledge management system that helps organize, connect, and retrieve information efficiently. Features intelligent search, note-taking, and knowledge graph visualization.",
+    "link": "https://github.com/GOI17/Intelligent-Personal-Knowledge-Manager"
   }
 ]
