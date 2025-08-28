@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Project One",
+    "description": "A cool project about X that showcases my skills in JavaScript and CSS.",
+    "link": "https://github.com/yourusername/project-one"
+  },
+  {
+    "title": "Project Two",
+    "description": "Another project about Y, built with vanilla JS and responsive design.",
+    "link": "https://github.com/yourusername/project-two"
+  }
+]
