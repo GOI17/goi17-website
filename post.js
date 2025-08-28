@@ -18,11 +18,13 @@ window.addEventListener('translationsLoaded', (event) => {
           if (sections.length > 1) {
             // Find the section that matches the current language
             const englishSection = sections.find(section =>
+              section.includes('# Rendering Strategies for Frontend') ||
               section.includes('# Understanding Carets') ||
               section.includes('# Why you should not compare') ||
               section.includes('# Docker is OK')
             );
             const spanishSection = sections.find(section =>
+              section.includes('# Estrategias de Renderizado para Frontend') ||
               section.includes('# Entendiendo los Carets') ||
               section.includes('# ¿Por qué no deberías') ||
               section.includes('# Docker está bien')
