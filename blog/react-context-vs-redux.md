@@ -46,11 +46,23 @@ React Context and Redux are often compared because they both provide a way to sh
 | Global authentication state | React Context (if simple) or Redux (if you need persistence, middleware) |
 | Complex business logic, async flows, caching | Redux / Redux‑Toolkit |
 | Large teams with strict state contracts | Redux |
+| Real-time collaborative features | Redux (with middleware like redux-saga) |
+| Complex data fetching and caching | Redux Toolkit Query (RTK Query) |
 
-## 6. Bottom Line
+## 6. Modern Alternatives
 
-React Context is great for small, component‑local concerns. Redux shines when you need a predictable, testable, and debuggable global store with a rich middleware ecosystem. Comparing them is like comparing a pocket‑knife to a full‑sized toolbox: each has its place, and the right choice depends on the problem you’re solving.
+While React Context and Redux remain excellent choices, consider these modern alternatives:
+
+- **Zustand**: Lightweight state management with a simple API, similar to Redux but with less boilerplate
+- **Recoil**: Facebook's state management library designed specifically for React
+- **Jotai**: Atomic state management inspired by Recoil, with a minimal API
+- **Redux Toolkit Query (RTK Query)**: For complex data fetching and caching scenarios
+
+## 7. Bottom Line
+
+React Context is great for small, component‑local concerns. Redux shines when you need a predictable, testable, and debuggable global store with a rich middleware ecosystem. Comparing them is like comparing a pocket‑knife to a full‑sized toolbox: each has its place, and the right choice depends on the problem you're solving.
 
 ---
 
 *Read more about Redux Toolkit: https://redux-toolkit.js.org/*
+*Explore RTK Query: https://redux-toolkit.js.org/rtk-query/overview*

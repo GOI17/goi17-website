@@ -33,5 +33,41 @@ Docker has become the de‑facto standard for containerization, but it has some 
 
 ## 5. Integration with Docker
 
-You don’t have to abandon Docker. Nix can build Docker images:
+You don't have to abandon Docker. Nix can build Docker images using tools like `dockerTools` in Nixpkgs:
+
+```nix
+# Example: Building a Docker image with Nix
+{ pkgs ? import <nixpkgs> {} }:
+
+pkgs.dockerTools.buildImage {
+  name = "my-app";
+  tag = "latest";
+
+  copyToRoot = [
+    (pkgs.buildEnv {
+      name = "app-env";
+      paths = [ pkgs.nodejs-18_x ];
+    })
+  ];
+
+  config = {
+    Cmd = [ "/bin/node" "/app/server.js" ];
+    WorkingDir = "/app";
+  };
+}
+```
+
+This approach gives you the best of both worlds: Nix's reproducibility and Docker's portability.
+
+## 6. Getting Started with Nix
+
+If you're interested in trying Nix:
+
+1. **Install Nix**: Follow the [official installation guide](https://nixos.org/download.html)
+2. **Learn the basics**: Start with the [Nix manual](https://nixos.org/manual/nix/stable/)
+3. **Explore Nixpkgs**: Browse packages at [search.nixos.org](https://search.nixos.org/packages)
+
+## Conclusion
+
+Docker is excellent for containerization and has become an industry standard. However, if you need stronger guarantees about reproducibility, better multi-platform support, or more fine-grained dependency control, Nix offers compelling alternatives. Consider your specific use case and team needs when choosing between them.
 
