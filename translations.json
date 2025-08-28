@@ -1,0 +1,30 @@
+{
+  "en": {
+    "title": "My Portfolio",
+    "nav_home": "Home",
+    "nav_projects": "Projects",
+    "nav_blog": "Blog",
+    "nav_twitch": "Twitch",
+    "welcome": "Welcome to my personal website. Explore my projects and read my latest blog posts.",
+    "projects_heading": "Projects",
+    "blog_heading": "Blog",
+    "twitch_heading": "Twitch",
+    "twitch_text1": "Check out my live streams and past broadcasts on Twitch.",
+    "twitch_link_text": "https://www.twitch.tv/unbootuichero",
+    "footer_text": "© 2025 Gilberto Olivas"
+  },
+  "es": {
+    "title": "Mi Portafolio",
+    "nav_home": "Inicio",
+    "nav_projects": "Proyectos",
+    "nav_blog": "Blog",
+    "nav_twitch": "Twitch",
+    "welcome": "Bienvenido a mi sitio web personal. Explora mis proyectos y lee mis últimas publicaciones de blog.",
+    "projects_heading": "Proyectos",
+    "blog_heading": "Blog",
+    "twitch_heading": "Twitch",
+    "twitch_text1": "Mira mis transmisiones en vivo y transmisiones pasadas en Twitch.",
+    "twitch_link_text": "https://www.twitch.tv/unbootuichero",
+    "footer_text": "© 2025 Gilberto Olivas"
+  }
+}
