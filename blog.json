@@ -3,7 +3,7 @@
     "key": "rendering_strategies_frontend",
     "title": "Rendering Strategies for Frontend: When and Why You Should Learn Them",
     "title_es": "Estrategias de Renderizado para Frontend: Cuándo y Por Qué Deberías Aprenderlas",
-    "date": "2024-12-28",
+    "date": "2025-08-28",
     "excerpt": "Master the different rendering strategies (SSR, SSG, CSR, ISR) to build faster, more SEO-friendly web applications. Learn when to use each approach and why understanding them is crucial for modern frontend development.",
     "excerpt_es": "Domina las diferentes estrategias de renderizado (SSR, SSG, CSR, ISR) para construir aplicaciones web más rápidas y amigables con SEO. Aprende cuándo usar cada enfoque y por qué entenderlas es crucial para el desarrollo frontend moderno.",
     "link": "./blog/rendering-strategies-frontend.md"
@@ -12,7 +12,7 @@
     "key": "carets_semantic_versioning",
     "title": "Understanding Carets (^) in Node.js: Why Semantic Versioning Matters",
     "title_es": "Entendiendo los Carets (^) en Node.js: Por qué importa el Versionado Semántico",
-    "date": "2024-12-26",
+    "date": "2025-08-25",
     "excerpt": "Learn why understanding the caret (^) symbol in package.json is crucial for Node.js developers. Discover how semantic versioning and caret ranges can prevent breaking changes and ensure project stability.",
     "excerpt_es": "Aprende por qué entender el símbolo caret (^) en package.json es crucial para desarrolladores de Node.js. Descubre cómo el versionado semántico y los rangos de caret pueden prevenir cambios disruptivos y asegurar la estabilidad del proyecto.",
     "link": "./blog/carets-node-semantic-versioning.md"
@@ -21,7 +21,7 @@
     "key": "react_context_vs_redux",
     "title": "Why you should not compare React Context with Redux/Redux-toolkit?",
     "title_es": "¿Por qué no deberías comparar React Context con Redux/Redux-toolkit?",
-    "date": "2024-12-15",
+    "date": "2025-08-20",
     "excerpt": "React Context and Redux serve different purposes. While Context is great for simple, component‑local state, Redux offers a robust, predictable store with middleware, dev‑tools, and a large ecosystem. Comparing them is like comparing a pocket‑knife to a full‑sized toolbox.",
     "excerpt_es": "React Context y Redux tienen propósitos diferentes. Mientras que Context es excelente para estados simples y locales a componentes, Redux ofrece una tienda robusta y predecible con middleware, dev‑tools y un gran ecosistema. Compararlos es como comparar un cuchillo de bolsillo con una caja de herramientas completa.",
     "link": "./blog/react-context-vs-redux.md"
@@ -30,7 +30,7 @@
     "key": "docker_nix",
     "title": "Docker is OK, but if you want to go further you should consider Nix",
     "title_es": "Docker está bien, pero si quieres ir más allá deberías considerar Nix",
-    "date": "2024-12-20",
+    "date": "2025-08-22",
     "excerpt": "Docker has become the de‑facto standard for containerization, but it has limitations in reproducibility, declarative configuration, and multi‑platform builds. Nix, a purely functional package manager, offers a different approach that can address many of Docker’s pain points.",
     "excerpt_es": "Docker se ha convertido en el estándar de facto para la contenedorización, pero tiene limitaciones en reproducibilidad, configuración declarativa y compilaciones multiplataforma. Nix, un gestor de paquetes puramente funcional, ofrece un enfoque diferente que puede abordar muchos de los puntos débiles de Docker.",
     "link": "./blog/docker-nix.md"
