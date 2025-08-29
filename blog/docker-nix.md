@@ -137,3 +137,74 @@ Si estás interesado en probar Nix:
 
 Docker es excelente para la contenedorización y se ha convertido en un estándar de la industria. Sin embargo, si necesitas garantías más sólidas sobre reproducibilidad, mejor soporte multiplataforma o control más granular de dependencias, Nix ofrece alternativas convincentes. Considera tu caso de uso específico y las necesidades de tu equipo al elegir entre ellos.
 
+---
+
+## 🤖 AI Summary: Docker vs Nix
+
+### Core Comparison:
+| Feature | Docker | Nix |
+|---------|--------|-----|
+| **Approach** | Imperative containers | Declarative packages |
+| **Reproducibility** | Layer-based, can vary | Hash-based, guaranteed |
+| **Multi-platform** | Cross-compilation needed | Built-in support |
+| **Dependencies** | Registry-based | Version-pinned, local |
+| **Learning Curve** | Moderate | Steep |
+| **Ecosystem** | Massive, mature | Growing, focused |
+
+### When to Choose Docker:
+```bash
+✅ Production deployments
+✅ Team familiarity
+✅ Quick prototyping
+✅ Microservices architecture
+✅ CI/CD integration
+✅ Enterprise environments
+```
+
+### When to Choose Nix:
+```bash
+✅ Reproducible builds
+✅ Development environments
+✅ Multi-platform deployment
+✅ Fine-grained dependency control
+✅ Research/academic projects
+✅ System-level configuration
+```
+
+### Integration Strategies:
+- **Docker + Nix**: Use Nix for development, Docker for deployment
+- **Nix for Docker**: Generate Docker images with Nix
+- **Hybrid Approach**: Nix for complex dependencies, Docker for isolation
+
+### Performance Comparison:
+| Metric | Docker | Nix |
+|--------|--------|-----|
+| **Build Speed** | Fast (layer caching) | Variable (full rebuilds) |
+| **Image Size** | Can be optimized | Minimal (exact deps) |
+| **Startup Time** | Fast | Fast |
+| **Resource Usage** | Moderate | Efficient |
+| **Network Usage** | Registry downloads | Local builds |
+
+### Key Takeaways:
+1. **Docker for Speed**: Quick setup, familiar workflow, massive ecosystem
+2. **Nix for Precision**: Exact reproducibility, multi-platform, dependency control
+3. **Not Mutually Exclusive**: Can use both in different parts of your stack
+4. **Learning Investment**: Docker easier to start, Nix offers long-term benefits
+5. **Use Case Dependent**: Choose based on project requirements, not hype
+
+### Migration Paths:
+- **From Docker to Nix**: Start with nix-shell for development environments
+- **From Nix to Docker**: Use dockerTools to generate images
+- **Gradual Adoption**: Introduce Nix incrementally into existing workflows
+
+### Best Practices:
+- **Development**: Use Nix for consistent environments
+- **CI/CD**: Docker for fast, reliable deployments
+- **Research**: Nix for reproducible experiments
+- **Production**: Docker for scalability, monitoring, and operations
+
+---
+
+*Want to learn more about Nix? Check out [nixos.org](https://nixos.org/)*
+*Compare containerization options: [Docker vs Podman vs Nix](https://www.docker.com/)*
+
