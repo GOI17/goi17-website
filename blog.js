@@ -147,9 +147,3 @@ window.addEventListener('translationsLoaded', (event) => {
     return null;
   }
 });
-
-        blogList.appendChild(cardGrid);
-      })
-      .catch(err => console.error('Error loading blog posts:', err));
-  }
-});
