@@ -120,21 +120,45 @@ window.addEventListener('translationsLoaded', (event) => {
     console.log('Modal displayed, fetching post:', postFile);
 
     // Load the blog post and extract AI summary
+    console.log('Fetching post file:', postFile);
     fetch(postFile)
       .then(r => {
         console.log('Fetch response status:', r.status);
+        console.log('Response ok:', r.ok);
+        if (!r.ok) {
+          throw new Error(`HTTP error! status: ${r.status}`);
+        }
         return r.text();
       })
       .then(md => {
-        console.log('Markdown loaded, length:', md.length);
+        console.log('Markdown loaded successfully, length:', md.length);
+        console.log('Markdown preview:', md.substring(0, 300) + '...');
+
+        // Check if AI summary section exists
+        const hasAISummary = md.includes('## 🤖 AI Summary:');
+        console.log('Contains AI Summary section:', hasAISummary);
+
         const summary = extractAISummary(md);
         const title = extractTitle(md);
 
-        console.log('Extracted title:', title);
-        console.log('Extracted summary:', summary);
+        console.log('Final extracted title:', title);
+        console.log('Final extracted summary exists:', !!summary);
+
+        console.log('Setting modal content:');
+        console.log('Title:', title);
+        console.log('Summary available:', !!summary);
+        console.log('Summary length:', summary ? summary.length : 0);
 
         modalTitle.textContent = `${storedLang === 'es' ? 'Resumen IA:' : 'AI Summary:'} ${title}`;
-        modalSummary.innerHTML = summary || (storedLang === 'es' ? 'Resumen no disponible' : 'Summary not available');
+
+        if (summary && summary.trim()) {
+          modalSummary.innerHTML = summary;
+          console.log('Modal content set successfully');
+        } else {
+          const noSummaryMsg = storedLang === 'es' ? 'Resumen no disponible' : 'Summary not available';
+          modalSummary.innerHTML = `<p style="text-align: center; color: #666;">${noSummaryMsg}</p>`;
+          console.log('No summary available, showing fallback message');
+        }
       })
       .catch(err => {
         console.error('Error loading summary:', err);
@@ -156,41 +180,82 @@ window.addEventListener('translationsLoaded', (event) => {
   }
 
   function extractAISummary(md) {
-    console.log('Extracting AI summary from:', md.substring(0, 200) + '...');
+    console.log('Extracting AI summary from markdown, length:', md.length);
+    console.log('First 500 chars:', md.substring(0, 500));
 
-    // Find the AI Summary section
+    // Find the AI Summary section - more flexible pattern
     const summaryMatch = md.match(/## 🤖 AI Summary:.*?\n([\s\S]*?)(?=---|\n## |\n### |\*\*|$)/);
-    console.log('Summary match found:', !!summaryMatch);
+    console.log('Summary match result:', summaryMatch);
 
-    if (summaryMatch) {
-      console.log('Summary content:', summaryMatch[1].trim());
-      try {
-        const parsed = marked.parse(summaryMatch[1].trim());
-        console.log('Parsed summary:', parsed);
-        return parsed;
-      } catch (error) {
-        console.error('Error parsing summary:', error);
-        return summaryMatch[1].trim(); // Return raw text if parsing fails
+    if (summaryMatch && summaryMatch[1]) {
+      const summaryContent = summaryMatch[1].trim();
+      console.log('Summary content length:', summaryContent.length);
+      console.log('Summary content preview:', summaryContent.substring(0, 200));
+
+      if (summaryContent.length > 0) {
+        try {
+          const parsed = marked.parse(summaryContent);
+          console.log('Successfully parsed summary, length:', parsed.length);
+          return parsed;
+        } catch (error) {
+          console.error('Error parsing summary with marked:', error);
+          return `<pre>${summaryContent}</pre>`; // Return as preformatted text
+        }
       }
     }
 
-    // Fallback: look for any summary-like content
-    const fallbackMatch = md.match(/(?:##|###).*?(?:summary|resumen|takeaways|conclusión).*?\n([\s\S]*?)(?=---|\n## |\n### |\*\*|$)/i);
-    console.log('Fallback match found:', !!fallbackMatch);
+    // Try a simpler pattern
+    const simpleMatch = md.match(/## 🤖 AI Summary:(.*?)(?=---|$)/s);
+    console.log('Simple match result:', simpleMatch);
 
-    if (fallbackMatch) {
-      console.log('Fallback content:', fallbackMatch[1].trim());
-      try {
-        const parsed = marked.parse(fallbackMatch[1].trim());
-        console.log('Parsed fallback:', parsed);
-        return parsed;
-      } catch (error) {
-        console.error('Error parsing fallback:', error);
-        return fallbackMatch[1].trim(); // Return raw text if parsing fails
+    if (simpleMatch && simpleMatch[1]) {
+      const content = simpleMatch[1].trim();
+      console.log('Simple match content length:', content.length);
+      if (content.length > 0) {
+        try {
+          return marked.parse(content);
+        } catch (error) {
+          console.error('Error parsing simple match:', error);
+          return `<pre>${content}</pre>`;
+        }
       }
     }
 
-    console.log('No summary found');
+    // Last resort: look for any content after AI Summary
+    const lines = md.split('\n');
+    let inSummary = false;
+    let summaryLines = [];
+
+    for (const line of lines) {
+      if (line.includes('## 🤖 AI Summary:')) {
+        inSummary = true;
+        continue;
+      }
+
+      if (inSummary) {
+        if (line.startsWith('## ') || line.startsWith('### ') || line.trim() === '---') {
+          break; // Stop at next section or separator
+        }
+        if (line.trim()) {
+          summaryLines.push(line);
+        }
+      }
+    }
+
+    if (summaryLines.length > 0) {
+      const manualContent = summaryLines.join('\n').trim();
+      console.log('Manual extraction content length:', manualContent.length);
+      if (manualContent.length > 0) {
+        try {
+          return marked.parse(manualContent);
+        } catch (error) {
+          console.error('Error parsing manual extraction:', error);
+          return `<pre>${manualContent}</pre>`;
+        }
+      }
+    }
+
+    console.log('No AI summary found in the content');
     return null;
   }
 });
