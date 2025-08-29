@@ -1,5 +1,14 @@
 [
   {
+    "key": "ai_impact_medical_studies",
+    "title": "The Impact of AI on Our Lives: From Code to Medicine",
+    "title_es": "El Impacto de la IA en Nuestras Vidas: Del Código a la Medicina",
+    "date": "2025-08-30",
+    "excerpt": "How AI transformed my personal life by helping my girlfriend study medicine. A story of technology bridging the gap between programming and healthcare, showing AI's real-world impact beyond the headlines.",
+    "excerpt_es": "Cómo la IA transformó mi vida personal ayudando a mi novia a estudiar medicina. Una historia de tecnología que conecta la programación con la salud, mostrando el impacto real de la IA más allá de los titulares.",
+    "link": "./blog/ai-impact-medical-studies.md"
+  },
+  {
     "key": "js_frameworks_vs_ai_tools",
     "title": "JavaScript Frameworks vs AI Tools: A Race to Obsolescence",
     "title_es": "Frameworks JavaScript vs Herramientas IA: Una Carrera hacia la Obsolescencia",

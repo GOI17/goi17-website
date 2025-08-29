@@ -18,6 +18,7 @@ window.addEventListener('translationsLoaded', (event) => {
           if (sections.length > 1) {
                 // Find the section that matches the current language
                 const englishSection = sections.find(section =>
+                  section.includes('# The Impact of AI on Our Lives') ||
                   section.includes('# JavaScript Frameworks vs AI Tools') ||
                   section.includes('# Rendering Strategies for Frontend') ||
                   section.includes('# Understanding Carets') ||
@@ -25,6 +26,7 @@ window.addEventListener('translationsLoaded', (event) => {
                   section.includes('# Docker is OK')
                 );
                 const spanishSection = sections.find(section =>
+                  section.includes('# El Impacto de la IA en Nuestras Vidas') ||
                   section.includes('# Frameworks JavaScript vs Herramientas IA') ||
                   section.includes('# Estrategias de Renderizado para Frontend') ||
                   section.includes('# Entendiendo los Carets') ||
