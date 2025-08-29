@@ -121,5 +121,68 @@ React Context es excelente para preocupaciones pequeñas y locales a componentes
 
 ---
 
+## 🤖 AI Summary: React Context vs Redux
+
+### Core Differences:
+| Feature | React Context | Redux / Redux Toolkit |
+|---------|----------------|----------------------|
+| **Best For** | Simple state, theme, locale | Complex apps, global state |
+| **Setup** | `createContext` + `Provider` | Store, reducers, actions |
+| **Performance** | Re-renders all consumers | Selective re-renders |
+| **Debugging** | React DevTools | Redux DevTools + time travel |
+| **Middleware** | None | Rich ecosystem (thunk, saga) |
+| **Testing** | Simple mock providers | Comprehensive testing tools |
+
+### Decision Matrix:
+```javascript
+// Choose React Context when:
+✅ State is simple and local
+✅ Few components need the data
+✅ Performance isn't critical
+✅ You want minimal boilerplate
+
+// Choose Redux when:
+✅ Complex state management needed
+✅ Many components share state
+✅ Time travel debugging required
+✅ Middleware features needed (async, logging)
+✅ Large team with strict contracts
+```
+
+### Modern Alternatives:
+- **Zustand**: Lightweight, simple API, less boilerplate than Redux
+- **Recoil**: Facebook's solution, atomic state management
+- **Jotai**: Minimal API, inspired by Recoil
+- **Redux Toolkit Query (RTK Query)**: For complex data fetching and caching scenarios
+
+### Performance Comparison:
+| Scenario | React Context | Redux |
+|----------|----------------|-------|
+| **Simple State** | ✅ Good | ❌ Overkill |
+| **Complex State** | ❌ Performance issues | ✅ Optimized |
+| **Frequent Updates** | ❌ Re-render cascades | ✅ Selective updates |
+| **Large Apps** | ❌ Scaling problems | ✅ Designed for scale |
+
+### Key Takeaways:
+1. **Context for Simple**: Theme, locale, user preferences
+2. **Redux for Complex**: Global app state, complex interactions
+3. **Hybrid Approach**: Use both in the same application
+4. **Modern Toolkit**: Redux Toolkit reduces boilerplate significantly
+5. **Performance Matters**: Choose based on update frequency and app size
+
+### Migration Strategies:
+- **From Context to Redux**: Gradual migration, start with Redux Toolkit
+- **From Redux to Context**: Identify truly global vs local state
+- **Hybrid Implementation**: Use Context for themes, Redux for data
+- **Testing**: Both support comprehensive testing strategies
+
+### Future Considerations:
+- **React Server Components**: May change state management patterns
+- **Signals**: New reactivity patterns may emerge
+- **Framework Evolution**: Stay updated with React's direction
+- **Community Tools**: New libraries may simplify state management
+
+---
+
 *Lee más sobre Redux Toolkit: https://redux-toolkit.js.org/*
 *Explora RTK Query: https://redux-toolkit.js.org/rtk-query/overview*
