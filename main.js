@@ -60,34 +60,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Mobile Menu Functionality */
   function initMobileMenu() {
+    // Check if we're on mobile (screen width <= 768px)
+    const isMobile = window.innerWidth <= 768;
+
+    console.log('Mobile menu init - Screen width:', window.innerWidth, 'Is mobile:', isMobile);
+
+    if (!isMobile) {
+      console.log('Not initializing mobile menu - desktop detected');
+      return; // Don't initialize mobile menu on desktop
+    }
+
+    console.log('Initializing mobile menu for mobile device');
+
     // Create mobile menu toggle button
     const mobileToggle = document.createElement('button');
     mobileToggle.className = 'mobile-menu-toggle';
     mobileToggle.innerHTML = '☰';
     mobileToggle.setAttribute('aria-label', 'Toggle navigation menu');
     mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileToggle.style.cssText = `
+      display: block;
+      position: absolute;
+      right: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 101;
+      background: var(--header-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      color: var(--fg);
+    `;
 
     // Insert toggle button into header
     const header = document.querySelector('header');
+    console.log('Header found:', !!header);
+
     if (header) {
       header.style.position = 'relative';
       header.appendChild(mobileToggle);
+      console.log('Mobile toggle button added to header');
+    } else {
+      console.error('Header not found!');
+      return;
     }
 
     // Get navigation element
     const nav = document.querySelector('nav');
+    console.log('Nav found:', !!nav);
 
     if (nav && mobileToggle) {
-      // Toggle mobile menu
-      mobileToggle.addEventListener('click', () => {
-        const isOpen = nav.classList.contains('mobile-open');
-        nav.classList.toggle('mobile-open');
-        mobileToggle.innerHTML = isOpen ? '☰' : '✕';
-        mobileToggle.setAttribute('aria-expanded', !isOpen);
+      console.log('Both nav and mobile toggle found, setting up event listeners');
+      // Initially hide the nav on mobile
+      nav.style.display = 'none';
 
-        // Close menu when clicking outside
-        if (!isOpen) {
-          document.addEventListener('click', closeMenuOnOutsideClick);
+      // Toggle mobile menu
+      mobileToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = nav.classList.contains('mobile-open');
+
+        if (isOpen) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
         }
       });
 
@@ -105,18 +146,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      function closeMenuOnOutsideClick(e) {
-        if (!header.contains(e.target)) {
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (nav.classList.contains('mobile-open') && !header.contains(e.target)) {
           closeMobileMenu();
-          document.removeEventListener('click', closeMenuOnOutsideClick);
         }
+      });
+
+      function openMobileMenu() {
+        nav.classList.add('mobile-open');
+        nav.style.display = 'flex';
+        mobileToggle.innerHTML = '✕';
+        mobileToggle.setAttribute('aria-expanded', 'true');
       }
 
       function closeMobileMenu() {
         nav.classList.remove('mobile-open');
+        nav.style.display = 'none';
         mobileToggle.innerHTML = '☰';
         mobileToggle.setAttribute('aria-expanded', 'false');
       }
     }
+
+    // Re-check on window resize
+    window.addEventListener('resize', () => {
+      const currentlyMobile = window.innerWidth <= 768;
+      if (currentlyMobile !== isMobile) {
+        location.reload(); // Reload to reinitialize with correct setup
+      }
+    });
   }
 });

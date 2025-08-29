@@ -444,11 +444,13 @@ footer p {
     top: 100%;
     left: 0;
     right: 0;
+    width: 100%;
     box-shadow: var(--shadow-md);
+    z-index: 100;
   }
 
   nav.mobile-open {
-    display: flex;
+    display: flex !important;
   }
 
   nav a {
