@@ -69,17 +69,24 @@ window.addEventListener('translationsLoaded', (event) => {
     `;
 
     // Add modal to page
+    console.log('Adding modal to page');
     document.body.insertAdjacentHTML('beforeend', modalHTML);
+    console.log('Modal HTML added to body');
 
     // Add event listeners for summary buttons
     document.addEventListener('click', (e) => {
+      console.log('Click event:', e.target.className, e.target.tagName);
+
       if (e.target.classList.contains('summary-btn')) {
+        console.log('Summary button clicked');
         e.preventDefault();
         const postFile = e.target.getAttribute('data-post');
+        console.log('Post file:', postFile);
         showSummaryModal(postFile);
       }
 
       if (e.target.classList.contains('modal-close') || e.target.classList.contains('modal-overlay')) {
+        console.log('Modal close triggered');
         hideSummaryModal();
       }
     });
@@ -93,21 +100,38 @@ window.addEventListener('translationsLoaded', (event) => {
   }
 
   function showSummaryModal(postFile) {
+    console.log('Showing summary modal for:', postFile);
+
     const modal = document.getElementById('summary-modal');
     const modalTitle = document.getElementById('modal-title');
     const modalSummary = document.getElementById('modal-summary');
+
+    console.log('Modal elements found:', {
+      modal: !!modal,
+      modalTitle: !!modalTitle,
+      modalSummary: !!modalSummary
+    });
 
     // Show loading state
     modalTitle.textContent = storedLang === 'es' ? 'Cargando Resumen...' : 'Loading Summary...';
     modalSummary.innerHTML = '<div class="loading">🤖</div>';
     modal.style.display = 'flex';
 
+    console.log('Modal displayed, fetching post:', postFile);
+
     // Load the blog post and extract AI summary
     fetch(postFile)
-      .then(r => r.text())
+      .then(r => {
+        console.log('Fetch response status:', r.status);
+        return r.text();
+      })
       .then(md => {
+        console.log('Markdown loaded, length:', md.length);
         const summary = extractAISummary(md);
         const title = extractTitle(md);
+
+        console.log('Extracted title:', title);
+        console.log('Extracted summary:', summary);
 
         modalTitle.textContent = `${storedLang === 'es' ? 'Resumen IA:' : 'AI Summary:'} ${title}`;
         modalSummary.innerHTML = summary || (storedLang === 'es' ? 'Resumen no disponible' : 'Summary not available');
@@ -132,18 +156,41 @@ window.addEventListener('translationsLoaded', (event) => {
   }
 
   function extractAISummary(md) {
+    console.log('Extracting AI summary from:', md.substring(0, 200) + '...');
+
     // Find the AI Summary section
     const summaryMatch = md.match(/## 🤖 AI Summary:.*?\n([\s\S]*?)(?=---|\n## |\n### |\*\*|$)/);
+    console.log('Summary match found:', !!summaryMatch);
+
     if (summaryMatch) {
-      return marked.parse(summaryMatch[1].trim());
+      console.log('Summary content:', summaryMatch[1].trim());
+      try {
+        const parsed = marked.parse(summaryMatch[1].trim());
+        console.log('Parsed summary:', parsed);
+        return parsed;
+      } catch (error) {
+        console.error('Error parsing summary:', error);
+        return summaryMatch[1].trim(); // Return raw text if parsing fails
+      }
     }
 
     // Fallback: look for any summary-like content
     const fallbackMatch = md.match(/(?:##|###).*?(?:summary|resumen|takeaways|conclusión).*?\n([\s\S]*?)(?=---|\n## |\n### |\*\*|$)/i);
+    console.log('Fallback match found:', !!fallbackMatch);
+
     if (fallbackMatch) {
-      return marked.parse(fallbackMatch[1].trim());
+      console.log('Fallback content:', fallbackMatch[1].trim());
+      try {
+        const parsed = marked.parse(fallbackMatch[1].trim());
+        console.log('Parsed fallback:', parsed);
+        return parsed;
+      } catch (error) {
+        console.error('Error parsing fallback:', error);
+        return fallbackMatch[1].trim(); // Return raw text if parsing fails
+      }
     }
 
+    console.log('No summary found');
     return null;
   }
 });
